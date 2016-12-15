@@ -6,7 +6,7 @@ class Clock {
     this.seconds = date.getSeconds();
     this.printTime();
 
-    setInterval(this._tick.bind(this), 500);
+    setInterval(this._tick.bind(this), 1000);
     // 1. Create a Date object.
     // 2. Store the hours, minutes, and seconds.
     // 3. Call printTime.
@@ -37,5 +37,24 @@ class Clock {
     // 2. Call printTime.
   }
 
+const readline = require('readline');
+const reader = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const clock = new Clock();
+function addNumbers(sum, numsLeft, competionCallback) {
+  if (numsLeft > 0) {
+  reader.question("Give me a number", function(answer) {
+    let num = parseInt(answer);
+    sum += num;
+    numsLeft -= 1;
+    console.log(sum);
+    addNumbers(sum, numsLeft, competionCallback);
+  });
+} else {
+    competionCallback(sum);
+    reader.close();
+
+  }
+}
