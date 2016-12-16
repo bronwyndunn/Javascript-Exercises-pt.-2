@@ -111,7 +111,11 @@ function absurdBubbleSort(arr, sortCompletionCallback) {
   // Kick the first outer loop off, starting `madeAnySwaps` as true.
 }
 
-absurdBubbleSort([3, 2, 1], function (arr) {
-  console.log("Sorted array: " + JSON.stringify(arr));
-  reader.close();
-});
+// absurdBubbleSort([3, 2, 1], function (arr) {
+//   console.log("Sorted array: " + JSON.stringify(arr));
+//   reader.close();
+// });
+
+Function.prototype.myBind = function(context, ...args) {
+  return () => this.apply(context);
+};
